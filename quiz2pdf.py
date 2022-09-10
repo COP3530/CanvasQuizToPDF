@@ -83,6 +83,11 @@ def write_exam_file(htmlfile, question_dict, quiz_submission=None):
                              'short_answer_question',
                              'essay_question',
                              'numerical_question'):
+            answer_text = '''
+            <div>
+                <input type="text" class="question_input">
+            </div>
+            '''
             pass  # use answer exactly as provided
         elif question_type in ('true_false_question',
                                'multiple_choice_question',
@@ -98,18 +103,16 @@ def write_exam_file(htmlfile, question_dict, quiz_submission=None):
                     choice = 'X' if answer is not None and 'answer_id' in answer and pan[
                         'id'] == answer['answer_id'] else ''
 
+                # Use a square for multiple answer question and use a circle for others
+                choiceIconType = "&#9723" if question_type == 'multiple_answers_question' else "&#9711"
                 answer_text += f'''
                     <div class="mc-item">
                         <label class="mc-row">
-                            <div class="answer_label">&#x25CB {pan["text"]}</div>
+                            <div class="answer_label">{choiceIconType} {pan["text"]}</div>
                         </label>
                     </div>
                 '''
-                # answer_text += '<div class="mc-item">'
-                # answer_text += f'<span class="mc-item-space"><span>&nbsp;{choice}&nbsp;</span></span>'
-                # answer_text += '&nbsp;&nbsp;'
-                # answer_text += f'<span class="mc-item-text">{pan["text"]}</span>'
-                # answer_text += '</div>'
+
         elif question_type in ('fill_in_multiple_blanks_question',
                                'multiple_dropdowns_question'):
             answer_text = '<table class="multiple-blanks-table">'
