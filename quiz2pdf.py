@@ -156,9 +156,8 @@ def write_exam_file(htmlfile, question_dict, quiz_submission=None):
             raise ValueError(f'Invalid question type: "{question_type}"')
 
         num_attempts_text = '' if num_attempts <= 1 else f' ({num_attempts} attempts)'
+        # <div class="question-preamble question-{question_id}"></div>
         htmlfile.write(f'''
-        <div class="question-preamble question-{question_id}"></div>
-        
         <div class=full-question-container>
             <div class="question-title-container">
                 <span class="question-title">Question {qnum}</span>
@@ -174,6 +173,8 @@ def write_exam_file(htmlfile, question_dict, quiz_submission=None):
             </div>
             </div>
         </div>
+        <br>
+        <br>
         ''')
         qnum += 1
 
