@@ -63,7 +63,7 @@
                 <div class=question><link rel="stylesheet" href="https://instructure-uploads.s3.amazonaws.com/account_10160000000002010/attachments/30491253/CIDILABS_mobile_app.css?AWSAccessKeyId=AKIAJFNFXH2V2O7RPCAA&amp;Expires=1955780686&amp;Signature=wX9xL8F5c7rxv4yUKxDG%2BPJ2DpM%3D&amp;response-cache-control=Cache-Control%3Amax-age%3D473364000.0%2C%20public&amp;response-expires=473364000.0"><p><span>Consider the following operations on a stack&nbsp;</span></p>
 <pre>push(10);<br>push(5);<br>pop();<br>push(7);<br>pop();<br>pop();<br>push(24);<br>push(3);</pre>
 <div>
-<div>After the completion of all operations, what will top() operation result in? (If results in an error, type "error" in the box)</div>
+<div>After the completion of all operations, what will size() operation result in? (Note: C++ stacks have a size() method).</div>
 </div></div>
                 <div class=answer>
             <div>
@@ -152,55 +152,6 @@
             </div>
 
             <div class="question-answer-container">
-                <div class=question><link rel="stylesheet" href="https://instructure-uploads.s3.amazonaws.com/account_10160000000002010/attachments/30491253/CIDILABS_mobile_app.css?AWSAccessKeyId=AKIAJFNFXH2V2O7RPCAA&amp;Expires=1955780686&amp;Signature=wX9xL8F5c7rxv4yUKxDG%2BPJ2DpM%3D&amp;response-cache-control=Cache-Control%3Amax-age%3D473364000.0%2C%20public&amp;response-expires=473364000.0"><p class="p1">What does the following pseudocode accomplish:</p>
-<pre class="p1">// pop() method returns an element and deletes it in the stack.<br>// push() method adds an element in the stack.<br>// dequeue() method returns an element and deletes it in the queue.<br>// queue() method adds an element in the queue<br><br>//Declare a stack and fill it.<br>Stack&lt;int&gt; stk<br><br>stk.push(6);<br>stk.push(3);<br>stk.push(8);<br>stk.push(2);<br><br>// Declare queue.<br>Queue&lt;int&gt; queue<br><br>// Mysterious functionality follows...<br>while(!stk.empty())<br>     queue.enqueue(stk.pop())<br><br>while(!queue.empty())<br>     stk.push(queue.dequeue())</pre></div>
-                <div class=answer>
-                    <div class="mc-item">
-                        <label class="mc-row">
-                            <div class="answer_label">&#9711 Sorts the stack</div>
-                        </label>
-                    </div>
-                
-                    <div class="mc-item">
-                        <label class="mc-row">
-                            <div class="answer_label">&#9711 Stack does not change</div>
-                        </label>
-                    </div>
-                
-                    <div class="mc-item">
-                        <label class="mc-row">
-                            <div class="answer_label">&#9711 Reverses the stack</div>
-                        </label>
-                    </div>
-                
-                    <div class="mc-item">
-                        <label class="mc-row">
-                            <div class="answer_label">&#9711 Doubles the elements in the stack</div>
-                        </label>
-                    </div>
-                
-                    <div class="mc-item">
-                        <label class="mc-row">
-                            <div class="answer_label">&#9711 Ends with an empty stack</div>
-                        </label>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-        <br>
-        <br>
-        
-        <div class=full-question-container>
-            <div class="question-title-container">
-                <span class="question-title">Question 6</span>
-
-                <span class="question-points-holder">
-                    <span class="question-points">1.0</span> pts
-                </span>
-            </div>
-
-            <div class="question-answer-container">
                 <div class=question><link rel="stylesheet" href="https://instructure-uploads.s3.amazonaws.com/account_10160000000002010/attachments/30491253/CIDILABS_mobile_app.css?AWSAccessKeyId=AKIAJFNFXH2V2O7RPCAA&amp;Expires=1955780686&amp;Signature=wX9xL8F5c7rxv4yUKxDG%2BPJ2DpM%3D&amp;response-cache-control=Cache-Control%3Amax-age%3D473364000.0%2C%20public&amp;response-expires=473364000.0">Which of the following statements about linked lists and arrays are TRUE?&nbsp;</div>
                 <div class=answer>
                     <div class="mc-item">
@@ -241,7 +192,7 @@
         
         <div class=full-question-container>
             <div class="question-title-container">
-                <span class="question-title">Question 7</span>
+                <span class="question-title">Question 6</span>
 
                 <span class="question-points-holder">
                     <span class="question-points">1.0</span> pts
@@ -249,49 +200,7 @@
             </div>
 
             <div class="question-answer-container">
-                <div class=question><link rel="stylesheet" href="https://instructure-uploads.s3.amazonaws.com/account_10160000000002010/attachments/30491253/CIDILABS_mobile_app.css?AWSAccessKeyId=AKIAJFNFXH2V2O7RPCAA&amp;Expires=1955780686&amp;Signature=wX9xL8F5c7rxv4yUKxDG%2BPJ2DpM%3D&amp;response-cache-control=Cache-Control%3Amax-age%3D473364000.0%2C%20public&amp;response-expires=473364000.0">A <span style="text-decoration: underline;">SINGLE</span> stack can be used to handle which of the following operations?</div>
-                <div class=answer>
-                    <div class="mc-item">
-                        <label class="mc-row">
-                            <div class="answer_label">&#9723 Balancing parenthesis</div>
-                        </label>
-                    </div>
-                
-                    <div class="mc-item">
-                        <label class="mc-row">
-                            <div class="answer_label">&#9723 Task scheduling</div>
-                        </label>
-                    </div>
-                
-                    <div class="mc-item">
-                        <label class="mc-row">
-                            <div class="answer_label">&#9723 Undo Feature</div>
-                        </label>
-                    </div>
-                
-                    <div class="mc-item">
-                        <label class="mc-row">
-                            <div class="answer_label">&#9723 Evaluating expressions</div>
-                        </label>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-        <br>
-        <br>
-        
-        <div class=full-question-container>
-            <div class="question-title-container">
-                <span class="question-title">Question 8</span>
-
-                <span class="question-points-holder">
-                    <span class="question-points">1.0</span> pts
-                </span>
-            </div>
-
-            <div class="question-answer-container">
-                <div class=question><link rel="stylesheet" href="https://instructure-uploads.s3.amazonaws.com/account_10160000000002010/attachments/30491253/CIDILABS_mobile_app.css?AWSAccessKeyId=AKIAJFNFXH2V2O7RPCAA&amp;Expires=1955780686&amp;Signature=wX9xL8F5c7rxv4yUKxDG%2BPJ2DpM%3D&amp;response-cache-control=Cache-Control%3Amax-age%3D473364000.0%2C%20public&amp;response-expires=473364000.0">What is the computational complexity of deleting an element from a doubly linked list with tail <span>in the worst case in terms of Big O notation</span>?</div>
+                <div class=question><link rel="stylesheet" href="https://instructure-uploads.s3.amazonaws.com/account_10160000000002010/attachments/30491253/CIDILABS_mobile_app.css?AWSAccessKeyId=AKIAJFNFXH2V2O7RPCAA&amp;Expires=1955780686&amp;Signature=wX9xL8F5c7rxv4yUKxDG%2BPJ2DpM%3D&amp;response-cache-control=Cache-Control%3Amax-age%3D473364000.0%2C%20public&amp;response-expires=473364000.0"><p>What is the computational complexity of deleting an element, <strong>e</strong> from a doubly linked list with tail <span>in the worst case in terms of Big O notation</span>? Assume the list has n items.</p></div>
                 <div class=answer>
                     <div class="mc-item">
                         <label class="mc-row">
@@ -325,59 +234,7 @@
         
         <div class=full-question-container>
             <div class="question-title-container">
-                <span class="question-title">Question 9</span>
-
-                <span class="question-points-holder">
-                    <span class="question-points">1.0</span> pts
-                </span>
-            </div>
-
-            <div class="question-answer-container">
-                <div class=question><link rel="stylesheet" href="https://instructure-uploads.s3.amazonaws.com/account_10160000000002010/attachments/30491253/CIDILABS_mobile_app.css?AWSAccessKeyId=AKIAJFNFXH2V2O7RPCAA&amp;Expires=1955780686&amp;Signature=wX9xL8F5c7rxv4yUKxDG%2BPJ2DpM%3D&amp;response-cache-control=Cache-Control%3Amax-age%3D473364000.0%2C%20public&amp;response-expires=473364000.0"><p>Complete question 3.4 on Stepik: <a href="https://stepik.org/lesson/582916/step/2?unit=577646" target="_blank">https://stepik.org/lesson/582916/step/2?unit=577646</a>&nbsp;</p>
-<p>No need to paste anything and we will enter your points here</p></div>
-                <div class=answer>
-            <div>
-                <input type="text" class="question_input">
-            </div>
-            </div>
-            </div>
-            </div>
-        </div>
-        <br>
-        <br>
-        
-        <div class=full-question-container>
-            <div class="question-title-container">
-                <span class="question-title">Question 10</span>
-
-                <span class="question-points-holder">
-                    <span class="question-points">1.0</span> pts
-                </span>
-            </div>
-
-            <div class="question-answer-container">
-                <div class=question><link rel="stylesheet" href="https://instructure-uploads.s3.amazonaws.com/account_10160000000002010/attachments/30491253/CIDILABS_mobile_app.css?AWSAccessKeyId=AKIAJFNFXH2V2O7RPCAA&amp;Expires=1955780686&amp;Signature=wX9xL8F5c7rxv4yUKxDG%2BPJ2DpM%3D&amp;response-cache-control=Cache-Control%3Amax-age%3D473364000.0%2C%20public&amp;response-expires=473364000.0">
-<p>Version control systems are used to keep track of file changes. Let us say that we are trying to build a new version control system called "GatorGit". An integral sub-component of this system is the diffchecker tool which compares the current file with the previous file version. For simplicity, lets consider all the files in the GatorGit system are documents represented by a <strong>Singly Linked List</strong>. <span>Each line in the document is stored in one single node in the linked list and each line has at most <strong><em>n </em></strong>characters.&nbsp; Each document has at most&nbsp;<em><strong>m </strong></em>lines. Different documents can have different number of lines.&nbsp;</span></p>
-<p><span>In this problem, you are supposed to write code for a simple diff-checker tool. </span><span>Write a function using pseudocode that takes in as input these two documents and prints the lines that differ across the two documents along with the corresponding line number. Your function takes as arguments&nbsp; the head nodes of two documents, <strong>Doc1</strong>&nbsp;and <strong>Doc2</strong> implemented as a </span><span style="font-family: inherit; font-size: 1rem;">Singly Linked List. The function compares each line of the two documents in parallel, i.e. line by line. E.g. Line 1 of Doc1 is compared with Line 1 of Doc2; If the two lines differ, then print the two lines along with the corresponding line numbers otherwise move to the next line till you reach the end of the longer document.</span><span> <span style="font-family: inherit; font-size: 1rem;">[5 points]</span></span></p>
-<p>Also, c<span>omment on the computational complexity of your function in the best and worst case in Big O notation. [2 points]</span></p>
-<p>&nbsp;</p>
-<p><span>Another Example:</span></p>
-<pre><span><strong>Doc1</strong><br>Hello World<br>This is great<br>Awesome<br><br><strong>Doc2<br></strong>Hello World<br>This is awful<br>Awesome<br><br><strong>Output<br></strong>2 This is great | This is awful<br><br>Explanation: Prints <strong>Line number, </strong>followed by<strong> Line in Document 1, </strong>followed by a separator <strong>'|', </strong>and then <strong>Line in Document 2 if the two lines don't match. </strong></span></pre>
-</div>
-                <div class=answer>
-            <div>
-                <input type="text" class="question_input">
-            </div>
-            </div>
-            </div>
-            </div>
-        </div>
-        <br>
-        <br>
-        
-        <div class=full-question-container>
-            <div class="question-title-container">
-                <span class="question-title">Question 11</span>
+                <span class="question-title">Question 7</span>
 
                 <span class="question-points-holder">
                     <span class="question-points">1.0</span> pts
@@ -431,7 +288,7 @@
         
         <div class=full-question-container>
             <div class="question-title-container">
-                <span class="question-title">Question 12</span>
+                <span class="question-title">Question 8</span>
 
                 <span class="question-points-holder">
                     <span class="question-points">1.0</span> pts
@@ -450,6 +307,72 @@
                     <div class="mc-item">
                         <label class="mc-row">
                             <div class="answer_label">&#9711 False</div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        
+        <div class=full-question-container>
+            <div class="question-title-container">
+                <span class="question-title">Question 9</span>
+
+                <span class="question-points-holder">
+                    <span class="question-points">1.0</span> pts
+                </span>
+            </div>
+
+            <div class="question-answer-container">
+                <div class=question><link rel="stylesheet" href="https://instructure-uploads.s3.amazonaws.com/account_10160000000002010/attachments/30491253/CIDILABS_mobile_app.css?AWSAccessKeyId=AKIAJFNFXH2V2O7RPCAA&amp;Expires=1955780686&amp;Signature=wX9xL8F5c7rxv4yUKxDG%2BPJ2DpM%3D&amp;response-cache-control=Cache-Control%3Amax-age%3D473364000.0%2C%20public&amp;response-expires=473364000.0"><p>State the output of the following C++ program. If the program has a compiler or runtime error, write <span style="background-color: #bfedd2;"><strong>error </strong></span>in the box; if the program demonstrates undefined behavior, write <span style="background-color: #bfedd2;"><strong>undefined </strong></span>in the box).</p>
+<pre>#include &lt;iostream&gt;<br>#include &lt;list&gt;<br><br>int main()<br>{<br>&nbsp; &nbsp; std::list&lt;int&gt; list_container {1, 2, 3, 4, 5}; &nbsp;<br>&nbsp; &nbsp;&nbsp;<br>&nbsp; &nbsp; auto it = list_container.end();<br>&nbsp; &nbsp;&nbsp;<br>  &nbsp; while(it != list_container.begin())&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; std::cout &lt;&lt; *(--it);<br><br>&nbsp; &nbsp; return 0;<br>}</pre></div>
+                <div class=answer>
+            <div>
+                <input type="text" class="question_input">
+            </div>
+            </div>
+            </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        
+        <div class=full-question-container>
+            <div class="question-title-container">
+                <span class="question-title">Question 10</span>
+
+                <span class="question-points-holder">
+                    <span class="question-points">1.0</span> pts
+                </span>
+            </div>
+
+            <div class="question-answer-container">
+                <div class=question><link rel="stylesheet" href="https://instructure-uploads.s3.amazonaws.com/account_10160000000002010/attachments/30491253/CIDILABS_mobile_app.css?AWSAccessKeyId=AKIAJFNFXH2V2O7RPCAA&amp;Expires=1955780686&amp;Signature=wX9xL8F5c7rxv4yUKxDG%2BPJ2DpM%3D&amp;response-cache-control=Cache-Control%3Amax-age%3D473364000.0%2C%20public&amp;response-expires=473364000.0"><p>What type of iterator does the container in the following C++ code implement [Select the broadest category]:</p>
+<pre>#include &lt;iostream&gt;<br>#include &lt;list&gt;<br><br>int main()<br>{<br>  &nbsp; std::list&lt;int&gt; list_container {1, 2, 3, 4, 5}; &nbsp;<br>&nbsp; &nbsp; return 0;<br>}</pre></div>
+                <div class=answer>
+                    <div class="mc-item">
+                        <label class="mc-row">
+                            <div class="answer_label">&#9711 Input/Output</div>
+                        </label>
+                    </div>
+                
+                    <div class="mc-item">
+                        <label class="mc-row">
+                            <div class="answer_label">&#9711 Forward</div>
+                        </label>
+                    </div>
+                
+                    <div class="mc-item">
+                        <label class="mc-row">
+                            <div class="answer_label">&#9711 Bidirectional</div>
+                        </label>
+                    </div>
+                
+                    <div class="mc-item">
+                        <label class="mc-row">
+                            <div class="answer_label">&#9711 Random access</div>
                         </label>
                     </div>
                 </div>

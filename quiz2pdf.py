@@ -2,6 +2,7 @@
 
 import os
 import csv
+from pprint import pprint
 import re
 from os import path
 import json
@@ -9,6 +10,7 @@ import zipfile
 import argparse
 import requests
 import weasyprint
+import pprint
 
 import canvas
 
@@ -26,7 +28,21 @@ def start_file(file_name):
     return htmlfile
 
 
-def write_exam_file(htmlfile, question_dict, quiz_submission=None):
+def check_question_group_pick_count_zero(quiz_id, question_id, api_key_token):
+    API_URL = "https://ufl.instructure.com/api/v1/courses/460732/quizzes/" + \
+        str(quiz_id) + "/groups/" + str(question_id)
+
+    token_header = {'Authorization': f'Bearer {api_key_token}'}
+    response = requests.get(API_URL, headers=token_header)
+    obj = response.json()
+
+    if obj['pick_count'] == 0:
+        return True
+
+    return False
+
+
+def write_exam_file(quiz_id, api_key_token, htmlfile, question_dict, quiz_submission=None):
     acct = ''
     snum = ''
     sname = ''
@@ -49,9 +65,15 @@ def write_exam_file(htmlfile, question_dict, quiz_submission=None):
 
     qnum = 1
     for (question_id, question) in question_dict.items():
+        # Discard the question if it's not picked on canvas
+        if question['quiz_group_id']:
+            if check_question_group_pick_count_zero(
+                    quiz_id, question['quiz_group_id'], api_key_token):
+                continue
+
         question_name = question['question_name']
         question_text = question['question_text']
-        print(question_text + "\n\n\n")
+
         question_type = question['question_type']
         if question_id in sub_questions and question_type == 'calculated_question':
             question_text = sub_questions[question_id]['question_text']
@@ -260,7 +282,7 @@ if not args.template_only:
     rawanswers_file = zipfile.ZipFile(
         f'{args.output_prefix}_raw_answers.zip', 'w')
 
-write_exam_file(template_file, questions)
+write_exam_file(args.quiz, args.canvas_token, template_file, questions)
 
 if args.debug:
     with open('debug.json', 'w') as file:
@@ -270,17 +292,6 @@ if args.debug:
         data['quiz_submissions'] = quiz_submissions
         data['submissions'] = submissions
         json.dump(data, file, indent=2)
-
-num_exams = 0
-for qs in quiz_submissions:
-    print(
-        f"Exporting student {num_exams + 1} out of {len(quiz_submissions)}...", end='\r')
-    write_exam_file(exams_file, questions, qs)
-    num_exams += 1
-    if num_exams % 20 == 0:
-        end_file(exams_file)
-        file_no += 1
-        exams_file = start_file(f'{args.output_prefix}_exams_{file_no}.html')
 
 end_file(template_file)
 if not args.template_only:
