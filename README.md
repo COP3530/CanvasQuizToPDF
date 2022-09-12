@@ -28,6 +28,10 @@ Please submit any questions or comments to jonatan@cs.ubc.ca.
 
 ## quiz2pdf.py
 
+### Newly adapted version for COP3530
+
+
+### Old Version 
 This is a script that converts a Canvas quiz to a PDF suitable for
 Gradescope. In addition to the `-t/-f`, `-c` and `-q` arguments listed
 above, it also receives the following arguments, all optional:
@@ -120,125 +124,6 @@ Given some limitations of the Canvas API, this script does not support
 question groups linked to question banks. If using question groups,
 the questions must be included in the quiz itself instead of in the
 bank only.
-
-## quiz2txt.py
-
-This script generates a ZIP file containing HTML files for each
-essay-type answer, as well as file uploads. It receives arguments
-`-t/-f`, `-p`, `-c`, `-q`, `-d`, `--only-question` and
-`--not-question`, with the same format and meaning as the equivalent
-arguments in `quiz2pdf.py` above.
-
-The script will connect to the Canvas API to get the latest responses
-from Canvas itself.  The script also creates one ZIP file per
-question, named `<XXX>_<QNAME>_<QID>.zip`, containing a file for each
-essay question in the quiz, where `<XXX>`, `<QNAME>` and `<QID>` are
-the prefix, question name and question ID, respectively. This file is
-named `<QID>_<STUD>_v<ATT>.html`, where `<QID>`, `<STUD>` and `<ATT>`
-are the question ID, student number and attempt number,
-respectively. Each answer will also include the question itself at the
-top of the file. For quizzes with multiple attempts allowed, these
-files will be created for all attempts. Also, for all file upload type
-questions, the uploads will be saved in the same file, in a file named
-`<QID>_<STUD>_v<ATT>_<FN>`, where FN is the file name originally used
-by the submitter.
-
-In addition to the answers, the ZIP files can also create a rubric
-file for every student. In that case, a template must be provided for
-each question, with the name `<XXX>_rubtempl_q<QID>.txt`. For question
-groups, this rubric may be named `<XXX>_rubtempl_qg<QGID>.txt`, where
-`<QGID>` is the question group ID. This template will be copied as is
-to the ZIP file, once for every submission, with the name
-`<QID>_<STUD>_v<ATT>_rubric.txt`.
-
-Unlike `quiz2pdf.py`, this script supports question groups linked to
-question banks.
-
-## json2quiz.py
-
-This script can be used to read, change and push changes to Canvas
-quizzes using JSON files. This can be suitable for cases where
-changing a quiz on a text editor is easier, or to create
-quizzes/questions programatically.
-
-The script receives arguments `-f/-t`, `-c` and `-q` as described
-above. It also receives a required argument (positional, i.e., with no
-prefix required) corresponding to the JSON file to use for
-synchronization. The script can work in one of three ways:
-
-1. If the `-l` option is provided, the quiz is loaded from Canvas and
-saved into the JSON file.
-
-2. If the `-p` option is provided, the JSON file is read and pushed to
-Canvas as a new or updated quiz.
-
-3. If both the `-p` and the `-l` options are provided, then both
-operations are performed: the Canvas quiz is updated based on the JSON
-file, and the new values from Canvas (including IDs) are loaded back
-to the JSON file.
-
-In addition to the options above, the `-s` option (used when `-l` is
-provided) controls the format of the output JSON file. If not
-provided, all fields received by the Canvas API are saved into the
-JSON file. If the option is given, only the fields that can be sent
-back to Canvas for updates are kept, as well as the IDs for
-information only.
-
-The `-d` option is also provided to enter a debug mode, though at this
-point it provides no functionality.
-
-The script can update existing questions, which can be done by simply
-changing the values associated to the question without changing its
-key. It can also create new questions, by creating a new item in the
-JSON file with a key not currently associated to an existing question
-or group (e.g., a non-numeric key). The script currently has no
-support for deleting questions.
-
-Question groups are also supported, but only if there is at least one
-question in the group. Due to limitations of the Canvas API, question
-groups with no question directly associated to the group cannot be
-loaded from Canvas. This includes groups linked to question banks,
-even if the question bank has questions. To add a question to an
-existing group, use the group ID itself in the 'quiz_group_id'
-field. It is also possible to create new groups, in which case a
-non-numeric string should be used as a key, and questions to be added
-to that group should use the string key as group ID. You are strongly
-encouraged to maintain at least one question associated to each group,
-as groups with no question can't be loaded back to the file.
-
-It is also possible to reorder items in the quiz by changing the
-'order' item. Note that the name used in this item is for information
-purposes only, and will be ignored during updates.
-
-## dupquiz.py
-
-This script duplicates an existing quiz on Canvas onto a new quiz with
-the same properties and the same questions. The script receives
-arguments `-f/-t`, `-c` and `-q` as described above, where the `-q` ID
-corresponds to the source quiz. The title of the new quiz is the same
-as the original quiz, adding the suffix " (copy)".
-
-By default, the new quiz is created as unpublished. If the
-`--published` option is provided, the quiz is instead created as
-published.
-
-If the `--practice` option is provided, the quiz is changed to be a
-practice quiz. This means that the title receives the suffix "
-(Practice Version)" instead of copy. Some changes are also done in the
-quiz properties, such as removing the due date and lock date, setting
-the release date to the lock date of the original quiz, removing time
-limits and attempt limits, and allowing correct answers to be shown on
-submission.
-
-## pushquizgrade.py
-
-This script pushes quiz grades based on a CSV file. Documentation
-pending.
-
-## pushasggrade.py
-
-This script pushes assignment grades from a CSV file to a Canvas
-rubric associated to an assignment. Documentation pending.
 
 ## License
 

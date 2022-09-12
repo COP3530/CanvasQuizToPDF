@@ -13,6 +13,10 @@ import weasyprint
 
 import canvas
 
+# This is used to render the images correctly.
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
 
 def start_file(file_name):
     if path.exists(file_name):
