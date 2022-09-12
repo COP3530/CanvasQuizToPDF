@@ -29,7 +29,13 @@ Please submit any questions or comments to jonatan@cs.ubc.ca.
 ## quiz2pdf.py
 
 ### Newly adapted version for COP3530
+Run the command `python3 quiz2pdf.py -t [API_KEY_TOKEN] -c [COURSE_ID] -q [QUIZ_ID] --template-only` to produce the html and the corresponding pdf. 
 
+The script will filter out the questions that are in a question group with pick_count = 0. 
+
+The css styling for the questions are styled similar to that of canvas. 
+* Multiple answer question: empty square
+* Multiple choice question: empty circle
 
 ### Old Version 
 This is a script that converts a Canvas quiz to a PDF suitable for
