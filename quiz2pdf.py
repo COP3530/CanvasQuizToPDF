@@ -10,7 +10,6 @@ import zipfile
 import argparse
 import requests
 import weasyprint
-import pprint
 
 import canvas
 
@@ -305,7 +304,8 @@ if args.css:
 
 for file in htmlfile_list:
     print(f'{file}...  ', end='\r')
-    weasyprint.HTML(filename=file).write_pdf(f'{file}.pdf', stylesheets=css)
+    weasyprint.HTML(filename=file).write_pdf(
+        f'{file}.pdf', stylesheets=css)
 
 print('\nDONE. Created files:')
 for file in htmlfile_list:
