@@ -1,6 +1,16 @@
 # canvasgrading
+This repo contains modified source code from canvas grading repo which can be found here: https://github.com/ubc-cpsc/canvasgrading/tree/d55f4b0868469de5527266278f3098ffcfb6edbd
 
-# python3 quiz2pdf.py -t 1016~K81eeTeKmeFK2QJ0M7WPOAKuDwTyCJCXdTdPW2MKNNmNpIAqzOWQhP8lhvapQtUP -c 460732 -q 1132163 --template-only
+### Newly adapted version for printing Canvas Quizzes
+Run the command `python3 quiz2pdf.py -t [API_KEY_TOKEN] -c [COURSE_ID] -q [QUIZ_ID] --template-only` to produce the html and the corresponding pdf. 
+
+The script will filter out the questions that are in a question group with pick_count = 0. 
+
+The css styling for the questions are styled similar to that of canvas. 
+* Multiple answer question: empty square
+* Multiple choice question: empty circle
+
+### Old Version 
 This repo contains several scripts that use the Canvas API to manage
 quizzes and assignments on Canvas.
 
@@ -29,16 +39,6 @@ Please submit any questions or comments to jonatan@cs.ubc.ca.
 
 ## quiz2pdf.py
 
-### Newly adapted version for COP3530
-Run the command `python3 quiz2pdf.py -t [API_KEY_TOKEN] -c [COURSE_ID] -q [QUIZ_ID] --template-only` to produce the html and the corresponding pdf. 
-
-The script will filter out the questions that are in a question group with pick_count = 0. 
-
-The css styling for the questions are styled similar to that of canvas. 
-* Multiple answer question: empty square
-* Multiple choice question: empty circle
-
-### Old Version 
 This is a script that converts a Canvas quiz to a PDF suitable for
 Gradescope. In addition to the `-t/-f`, `-c` and `-q` arguments listed
 above, it also receives the following arguments, all optional:
@@ -133,5 +133,4 @@ the questions must be included in the quiz itself instead of in the
 bank only.
 
 ## License
-
 This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](https://creativecommons.org/licenses/by-nc/4.0/).
