@@ -1,6 +1,6 @@
 #! /usr/bin/python3
-
 import os
+# os.add_dll_directory("C:\\Program Files\\GTK3-Runtime Win64\\bin")
 import csv
 from pprint import pprint
 import re
@@ -31,8 +31,8 @@ def start_file(file_name):
     return htmlfile
 
 
-def check_question_group_pick_count_zero(quiz_id, question_id, api_key_token):
-    API_URL = "https://ufl.instructure.com/api/v1/courses/460732/quizzes/" + \
+def check_question_group_pick_count_zero(course_id, quiz_id, question_id, api_key_token):
+    API_URL = "https://ufl.instructure.com/api/v1/courses/"+str(course_id)+"/quizzes/" + \
         str(quiz_id) + "/groups/" + str(question_id)
 
     token_header = {'Authorization': f'Bearer {api_key_token}'}
@@ -45,7 +45,7 @@ def check_question_group_pick_count_zero(quiz_id, question_id, api_key_token):
     return False
 
 
-def write_exam_file(quiz_id, api_key_token, htmlfile, question_dict, quiz_submission=None):
+def write_exam_file(course_id, quiz_id, api_key_token, htmlfile, question_dict, quiz_submission=None):
     acct = ''
     snum = ''
     sname = ''
@@ -71,7 +71,7 @@ def write_exam_file(quiz_id, api_key_token, htmlfile, question_dict, quiz_submis
         # Discard the question if it's not picked on canvas
         if question['quiz_group_id']:
             if check_question_group_pick_count_zero(
-                    quiz_id, question['quiz_group_id'], api_key_token):
+                    course_id, quiz_id, question['quiz_group_id'], api_key_token):
                 continue
 
         question_name = question['question_name']
@@ -285,7 +285,7 @@ if not args.template_only:
     rawanswers_file = zipfile.ZipFile(
         f'{args.output_prefix}_raw_answers.zip', 'w')
 
-write_exam_file(args.quiz, args.canvas_token, template_file, questions)
+write_exam_file(args.course, args.quiz, args.canvas_token, template_file, questions)
 
 if args.debug:
     with open('debug.json', 'w') as file:

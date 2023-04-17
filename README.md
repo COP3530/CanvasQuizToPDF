@@ -1,5 +1,6 @@
 # canvasgrading
 
+# python3 quiz2pdf.py -t 1016~K81eeTeKmeFK2QJ0M7WPOAKuDwTyCJCXdTdPW2MKNNmNpIAqzOWQhP8lhvapQtUP -c 460732 -q 1132163 --template-only
 This repo contains several scripts that use the Canvas API to manage
 quizzes and assignments on Canvas.
 
